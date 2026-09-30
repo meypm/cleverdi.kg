@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="description" content="Cleverdi — списки студентов и результаты тестирования по специальностям">
+  <title>Cleverdi — Списки и результаты тестирования</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="Cleverdi">
+      <span class="logo">C</span>
+      <span class="brand-copy">
+        <strong>Cleverdi</strong>
+        <small>Результаты тестирования</small>
+      </span>
+    </a>
+
+    <button class="menu-button" id="menuButton" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="#specialties">Специальности</a>
+      <a href="#students">Списки студентов</a>
+      <a href="#services">Сервисы</a>
+      <a href="#about">Как найти себя</a>
+      <a class="nav-primary" href="#students">Найти результат</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="container hero-layout">
+      <div class="hero-copy">
+        <div class="top-label"><i></i> 2026–2027 учебный год</div>
+        <h1>Списки студентов и <span>результаты тестирования</span></h1>
+        <p>
+          Выберите 1-й, 2-й или 3-й тур, специальность или найдите себя по ФИО.
+          На странице отображаются специальность, проходной балл и результат выбранного тура.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary large" href="#students">Найти себя</a>
+          <a class="button outline large" href="#specialties">Выбрать специальность</a>
+        </div>
+        <div class="hero-facts">
+          <div><b id="heroStudentCount">—</b><span>студентов</span></div>
+          <div><b id="heroSpecialtyCount">—</b><span>специальностей</span></div>
+          <div><b>24/7</b><span>доступ к списку</span></div>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-hidden="true">
+        <div class="window-head"><i></i><i></i><i></i></div>
+        <div class="student-preview">
+          <div class="preview-top">
+            <span class="preview-badge">Результат найден</span>
+            <span class="preview-number">№ 4</span>
+          </div>
+          <div class="preview-person">
+            <span class="preview-avatar">АИ</span>
+            <div>
+              <strong>Абдимиталипов Ильгиз Мирланович</strong>
+              <small>Юриспруденция</small>
+            </div>
+          </div>
+          <div class="preview-results">
+            <div><span>Проходной балл</span><b>60</b></div>
+            <div><span>Результат 1 тура</span><b>240</b></div>
+          </div>
+          <div class="preview-success">✓ Проходной балл набран</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="specialties-section" id="specialties">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">Направления обучения</span>
+          <h2>Выберите специальность</h2>
+          <p>После выбора ниже откроется полный список студентов этой специальности.</p>
+        </div>
+      </div>
+      <div class="specialty-grid" id="specialtyGrid"></div>
+    </div>
+  </section>
+
+  <section class="students-section" id="students">
+    <div class="container">
+      <div class="list-shell">
+        <div class="list-header">
+          <div>
+            <span class="kicker" id="listKicker">Список 2026–2027 · 1 тур</span>
+            <h2 id="listTitle">Все студенты</h2>
+            <p id="listDescription">Выберите специальность или найдите себя по ФИО.</p>
+          </div>
+          <div class="list-count" id="listCount">0 записей</div>
+        </div>
+
+        <div class="toolbar">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m21 21-4.4-4.4m1.4-5.6a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+            </svg>
+            <label class="sr-only" for="studentSearch">Поиск по ФИО</label>
+            <input id="studentSearch" type="search" placeholder="Введите фамилию, имя или ФИО">
+          </div>
+
+          <label class="select-wrap round-select">
+            <span class="sr-only">Тур тестирования</span>
+            <select id="roundSelect" aria-label="Тур тестирования">
+              <option value="1">1 тур</option>
+              <option value="2">2 тур</option>
+              <option value="3">3 тур</option>
+            </select>
+          </label>
+
+          <label class="select-wrap">
+            <span class="sr-only">Специальность</span>
+            <select id="specialtySelect">
+              <option value="">Все специальности</option>
+            </select>
+          </label>
+
+          <label class="select-wrap status-select">
+            <span class="sr-only">Статус</span>
+            <select id="statusSelect">
+              <option value="">Все результаты</option>
+              <option value="passed">Проходной балл набран</option>
+              <option value="failed">Не набран</option>
+              <option value="pending">Нет результата</option>
+            </select>
+          </label>
+
+          <button class="clear-button" id="clearButton" type="button">Сбросить</button>
+        </div>
+
+        <div class="mobile-tip">На телефоне список отображается карточками для удобного чтения.</div>
+
+        <div class="table-wrap">
+          <table class="students-table">
+            <thead>
+              <tr>
+                <th>№</th>
+                <th>ФИО студента</th>
+                <th>Специальность</th>
+                <th id="passingScoreHeader">Проходной балл</th>
+                <th id="resultHeader">Результат 1 тура</th>
+                <th>Итог</th>
+              </tr>
+            </thead>
+            <tbody id="studentsBody"></tbody>
+          </table>
+        </div>
+
+        <div class="empty-state hidden" id="emptyState">
+          <span>⌕</span>
+          <strong>Студент не найден</strong>
+          <p>Проверьте написание ФИО или сбросьте фильтры.</p>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-heading services-heading">
+        <div>
+          <span class="kicker">Сервисы для студентов</span>
+          <h2>Справка об обучении</h2>
+          <p>Найдите себя по ФИО и сформируйте предварительный текст справки об обучении.</p>
+        </div>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card">
+          <div class="service-icon">📄</div>
+          <div class="service-number">02</div>
+          <h3>Справка об обучении</h3>
+          <p>Введите фамилию или ФИО — система найдёт студента и автоматически сформирует текст справки.</p>
+
+          <div class="certificate-types">
+            <span>Автозаполнение ФИО</span>
+            <span>Специальность из списка</span>
+            <span>Печать / PDF</span>
+          </div>
+
+          <button class="service-action primary-action" type="button" data-open-modal="certificateModal">Сформировать справку</button>
+        </article>
+      </div>
+    </div>
+  </section>
+<div class="modal hidden" id="certificateModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog certificate-dialog" role="dialog" aria-modal="true" aria-labelledby="certificateTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+      <span class="kicker">Автоматическая справка</span>
+      <h2 id="certificateTitle">Справка об обучении</h2>
+      <p class="modal-lead">Введите фамилию или ФИО. Данные будут подставлены из списка студентов.</p>
+
+      <div class="certificate-search-block">
+        <label>
+          <span>Фамилия или ФИО</span>
+          <div class="certificate-search-row">
+            <input type="search" id="certificateStudentSearch" placeholder="Например: Бектурсун уулу Аваз" autocomplete="off">
+            <button class="button primary" id="certificateFindButton" type="button">Найти</button>
+          </div>
+        </label>
+
+        <div class="certificate-search-message" id="certificateSearchMessage"></div>
+        <div class="certificate-matches hidden" id="certificateMatches"></div>
+      </div>
+
+      <div class="certificate-preview hidden" id="certificatePreview">
+        <div class="certificate-paper official-certificate-paper" id="certificatePaper">
+          <div class="official-header-grid">
+            <div class="official-header-col official-header-kg">
+              <strong>КЫРГЫЗ РЕСПУБЛИКАСЫ</strong>
+              <strong>ИЛИМ, ЖОГОРКУ БИЛИМ БЕРҮҮ</strong>
+              <strong>ЖАНА ИННОВАЦИЯЛАР</strong>
+              <strong>МИНИСТРЛИГИ</strong>
+              <span class="official-gap"></span>
+              <strong>К.Ш. ТОКТОМАМАТОВ АТЫНДАГЫ</strong>
+              <strong>ЭЛ АРАЛЫК УНИВЕРСИТЕТ</strong>
+              <span>окуу-илимий-өндүрүштүк комплекси</span>
+              <em>коммерциялык эмес билим берүү мекемеси</em>
+            </div>
+
+            <div class="official-emblem-wrap">
+              <img src="assets/images/kyrgyz-emblem.jpeg" alt="Кыргыз Республикасынын герби" class="official-emblem">
+            </div>
+
+            <div class="official-header-col official-header-ru">
+              <strong>КЫРГЫЗСКАЯ РЕСПУБЛИКА</strong>
+              <strong>МИНИСТЕРСТВО НАУКИ, ВЫСШЕГО</strong>
+              <strong>ОБРАЗОВАНИЯ И ИННОВАЦИЙ</strong>
+              <span class="official-gap"></span>
+              <em>Некоммерческое образовательное учреждение</em>
+              <span>Учебно-научно-производственный комплекс</span>
+              <strong>МЕЖДУНАРОДНЫЙ УНИВЕРСИТЕТ</strong>
+              <strong>ИМЕНИ К.Ш. ТОКТОМАМАТОВА</strong>
+            </div>
+          </div>
+
+          <div class="official-header-en">
+            <strong>KYRGYZ REPUBLIC</strong>
+            <strong>MINISTRY OF SCIENCE, HIGHER EDUCATION AND INNOVATION</strong>
+            <em>Non-profit educational institution</em>
+            <span>Educational-Scientific-Production Complex</span>
+            <strong>INTERNATIONAL UNIVERSITY NAMED AFTER K.SH. TOKTOMAMATOV</strong>
+          </div>
+
+          <div class="official-black-line"></div>
+
+          <div class="official-contacts">
+            <p>Кыргыз Республикасы, Жалал-Абад ш., 715613, Тарсус к., 1 а; тел.: +996 3722 51811, факс: +996 3722 50705; www.mnu.kg; эл.почта: info@mnu.kg; КБ «Кыргызстан», э/э 1031520000006790, БИК 103015, ОКПО 01852811.</p>
+            <p>Кыргызская Республика, г. Жалал-Абад, 715613, ул. Тарсус 1 а; тел.: +996 3722 51811, факс: +996 3722 50705; www.mnu.kg; эл.почта: info@mnu.kg; КБ «Кыргызстан», р/с 1031520000006790, БИК 10301530, ОКПО 01852811.</p>
+            <p>1 a, Tarsus St., Jalal-Abad city, 715613, Kyrgyz Republic, phone: +996 3722 51811, fax: +996 3722 50705; www.mnu.kg; E-mail: info@mnu.kg.</p>
+          </div>
+
+          <div class="official-doc-number">
+            <span id="certificateDate">__.__.2026</span>
+            <span>№ __________</span>
+          </div>
+
+          <h3 class="official-title">Справка</h3>
+
+          <div class="official-body">
+            <p>
+              Настоящая справка подтверждает, что
+              <strong id="certificateFullName">ФИО студента</strong>
+              действительно зачислен(а) и обучается на 1 курсе 2026-2027 учебного года
+              по направлению «<strong id="certificateStudentSpecialty">Специальность</strong>»
+              Московского института экономики, политики и права при Международном университете
+              им. К.Ш. Токтомаматова.
+            </p>
+            <p>Справка дана для предъявления по месту требования.</p>
+          </div>
+
+          <div class="official-signature">
+            <strong>Представитель МИЭПиП</strong>
+            <strong>Торогелдиева А.Б.</strong>
+          </div>
+        </div><div class="certificate-preview-actions">
+          <button class="button primary" type="button" id="certificatePrintButton">Распечатать / сохранить PDF</button>
+          <button class="button certificate-secondary" type="button" id="certificateChangeStudent">Выбрать другого студента</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<section class="about-section" id="about">
+    <div class="container about-grid">
+      <div>
+        <span class="kicker">Как пользоваться</span>
+        <h2>Найти себя можно двумя способами</h2>
+        <p>
+          Если знаете свою специальность — выберите её в верхнем блоке.
+          Если хотите быстрее — введите фамилию или имя в поиске.
+        </p>
+      </div>
+      <div class="steps">
+        <article><b>01</b><div><strong>Выберите специальность</strong><span>Откроется список именно этого направления.</span></div></article>
+        <article><b>02</b><div><strong>Найдите своё ФИО</strong><span>Поиск работает по фамилии, имени и полному ФИО.</span></div></article>
+        <article><b>03</b><div><strong>Посмотрите баллы</strong><span>В строке указаны проходной балл и результат тестирования.</span></div></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="#top" class="brand footer-brand">
+      <span class="logo">C</span>
+      <span class="brand-copy"><strong>Cleverdi</strong><small>Результаты тестирования</small></span>
+    </a>
+    <p>© <span id="currentYear"></span> Cleverdi. Список студентов 2026–2027.</p>
+  </div>
+</footer>
+
+<script src="assets/js/students.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
