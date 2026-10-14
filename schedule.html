@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="description" content="Cleverdi — расписание занятий и важные объявления">
+  <title>Cleverdi — Расписание занятий</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="schedule-page-body">
+<header class="header schedule-page-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="Cleverdi — главная">
+      <span class="logo">C</span>
+      <span class="brand-copy"><strong>Cleverdi</strong><small>Расписание занятий</small></span>
+    </a>
+    <button class="menu-button" id="menuButton" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a class="nav-primary" href="index.html">Главная</a>
+    </nav>
+  </div>
+</header>
+
+<main class="schedule-page-main">
+  <section class="schedule-page-hero">
+    <div class="container">
+      <a class="schedule-page-back" href="index.html">← Вернуться на главную</a>
+      <div class="top-label"><i></i> 2026–2027 учебный год</div>
+      <h1>Расписание занятий</h1>
+      <p>Сначала обязательно прочитайте объявление. Ниже размещено актуальное расписание занятий. Расписание может изменяться, поэтому проверяйте эту страницу регулярно.</p>
+      <div class="schedule-hero-actions">
+        <a class="button schedule-certificate-button" href="index.html#achievements">🏆 Сертификат учебного центра</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="schedule-section" id="schedule" aria-labelledby="scheduleTitle">
+    <div class="container">
+      <!-- ==========================================================
+           ОБЪЯВЛЕНИЕ — РЕДАКТИРУЙТЕ ТЕКСТ ПРЯМО ЗДЕСЬ, В schedule.html
+           Можно менять заголовок, даты, группы и текст.
+           Чтобы добавить ещё один пункт — скопируйте целиком блок
+           <article class="announcement-card"> ... </article>.
+           ========================================================== -->
+      <div class="schedule-notice" id="announcement" role="region" aria-label="Важное объявление">
+        <div class="schedule-notice-top">
+          <span class="schedule-alert-icon" aria-hidden="true">!</span>
+          <div>
+            <span class="schedule-alert-kicker">Важное объявление</span>
+            <h2>Кулактандыруу!!!</h2>
+            <p>Объявление находится сверху специально, чтобы каждый студент его увидел и прочитал.</p>
+          </div>
+          <span class="schedule-required-badge">ОБЯЗАТЕЛЬНО ПРОЧИТАТЬ</span>
+        </div>
+
+        <div class="announcement-grid">
+          <!-- ПУНКТ 1 -->
+          <article class="announcement-card">
+            <div class="announcement-number">01</div>
+            <div class="announcement-content">
+              <strong class="announcement-period">19 октябрьдан 31 октябрьга чеин</strong>
+              <div class="announcement-groups">
+                <span>ЭУП-26</span><span>ФК-26</span><span>БУХ-26</span>
+              </div>
+              <p>тайпаларына окуу болот</p>
+            </div>
+          </article>
+
+          <!-- ПУНКТ 2 -->
+          <article class="announcement-card">
+            <div class="announcement-number">02</div>
+            <div class="announcement-content">
+              <strong class="announcement-period">2 ноябрьдан 13 ноябрьга чеин</strong>
+              <div class="announcement-groups">
+                <span>Педагогика-26</span><span>Дене тарбия-26</span>
+              </div>
+              <p>тайпаларына окуу болот</p>
+            </div>
+          </article>
+
+          <!-- ПУНКТ 3 -->
+          <article class="announcement-card">
+            <div class="announcement-number">03</div>
+            <div class="announcement-content">
+              <strong class="announcement-period">16 ноябрьдан 27 ноябрьга чеин</strong>
+              <div class="announcement-groups">
+                <span>ИТУ-26</span><span>Русский язык -26</span>
+              </div>
+              <p>тайпаларына окуу болот</p>
+            </div>
+          </article>
+
+          <!-- ПУНКТ 4 -->
+          <article class="announcement-card">
+            <div class="announcement-number">04</div>
+            <div class="announcement-content">
+              <strong class="announcement-period">30 ноябрьдан 11 декабрьга чеин</strong>
+              <div class="announcement-groups">
+                <span>ЮР -26</span>
+              </div>
+              <p>тайпасына окуу болот</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="announcement-notes">
+          <p>Жогорудагы көрсөтүлгөн күндөрү ушул тайпаларда лекциялар жүргүзүлөт жана арасында практикалык сабактар кошулат.</p>
+          <p class="announcement-change-note">Сабаткардын расписаниеси алмашып турат, ошого күн алыста карап тургула</p>
+        </div>
+      </div>
+
+      <div class="schedule-board">
+        <div class="schedule-heading">
+          <div>
+            <span class="kicker">Учебный процесс</span>
+            <h2 id="scheduleTitle">Расписание занятий</h2>
+            <p id="scheduleSubtitle">1 семестр · 2026–2027 учебный год</p>
+          </div>
+        </div>
+        <div class="schedule-days" id="scheduleDays"></div>
+      </div>
+      <p class="schedule-page-footer-note">Cleverdi · Актуальное расписание и объявления</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="brand footer-brand"><span class="logo">C</span><span class="brand-copy"><strong>Cleverdi</strong><small>Расписание занятий</small></span></a>
+    <p>© <span id="currentYear"></span> Cleverdi.</p>
+  </div>
+</footer>
+<script src="assets/js/schedule.js"></script>
+<script src="assets/js/schedule-page.js"></script>
+</body>
+</html>

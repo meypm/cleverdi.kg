@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Cleverdi — Админ расписания</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="admin-page-body">
+  <main class="admin-shell">
+    <section class="admin-login-card" id="adminLoginView">
+      <div class="admin-login-logo">C</div>
+      <span class="admin-eyebrow">Закрытый раздел</span>
+      <h1>Админ расписания</h1>
+      <p>Войдите, чтобы изменить расписание через удобную форму.</p>
+
+      <form id="adminLoginForm" class="admin-login-form" autocomplete="off">
+        <label>
+          <span>Логин</span>
+          <input id="adminLogin" name="login" type="text" autocomplete="username" required>
+        </label>
+        <label>
+          <span>Пароль</span>
+          <div class="admin-password-wrap">
+            <input id="adminPassword" name="password" type="password" autocomplete="current-password" required>
+            <button type="button" id="togglePassword" class="admin-eye-button" aria-label="Показать пароль">👁</button>
+          </div>
+        </label>
+        <div class="admin-login-error" id="adminLoginError" role="alert"></div>
+        <button class="admin-primary-btn admin-full-btn" type="submit">Войти</button>
+      </form>
+      <a href="schedule.html" class="admin-back-link">← Вернуться к расписанию</a>
+    </section>
+
+    <section class="admin-panel" id="adminPanel" hidden>
+      <header class="admin-toolbar">
+        <div>
+          <span class="admin-eyebrow">Cleverdi</span>
+          <h1>Редактор расписания</h1>
+          <p>Изменяйте дни, группы, предметы, преподавателей и аудитории без ручного редактирования кода.</p>
+        </div>
+        <div class="admin-toolbar-actions">
+          <a class="admin-secondary-btn" href="schedule.html" target="_blank" rel="noopener">Открыть расписание ↗</a>
+          <button class="admin-danger-outline-btn" id="adminLogout" type="button">Выйти</button>
+        </div>
+      </header>
+
+      <div class="admin-notice-box">
+        <strong>Frontend-режим для GitHub Pages</strong>
+        <p>Кнопка «Сохранить изменения» сохраняет расписание прямо в браузере этого устройства. После сохранения откройте страницу «Расписание» — изменения появятся сразу. Backend не требуется.</p>
+        <p><b>Важно:</b> localStorage не синхронизируется между устройствами. Чтобы одно и то же расписание увидели все студенты, используйте «Скачать schedule.js» и замените файл <code>assets/js/schedule.js</code> в GitHub.</p>
+      </div>
+
+      <section class="admin-settings-card">
+        <div class="admin-section-title">
+          <div>
+            <span>01</span>
+            <div><h2>Общие данные</h2><p>Заголовок и учебный период.</p></div>
+          </div>
+        </div>
+        <div class="admin-grid-2">
+          <label class="admin-field">
+            <span>Название</span>
+            <input id="scheduleTitleInput" type="text">
+          </label>
+          <label class="admin-field">
+            <span>Семестр / учебный год</span>
+            <input id="scheduleSemesterInput" type="text">
+          </label>
+        </div>
+      </section>
+
+      <section class="admin-settings-card">
+        <div class="admin-section-title admin-section-title-row">
+          <div>
+            <span>02</span>
+            <div><h2>Дни и занятия</h2><p>Каждый блок ниже соответствует одному дню расписания.</p></div>
+          </div>
+          <button type="button" id="addDayButton" class="admin-secondary-btn">+ Добавить день</button>
+        </div>
+        <div id="adminDays" class="admin-days-editor"></div>
+      </section>
+
+      <div class="admin-savebar">
+        <div class="admin-save-status" id="adminSaveStatus">Изменения ещё не сохранены</div>
+        <div class="admin-save-actions">
+          <button type="button" id="resetScheduleButton" class="admin-danger-outline-btn">Сбросить локальные изменения</button>
+          <button type="button" id="savePreviewButton" class="admin-primary-btn">Сохранить изменения</button>
+          <button type="button" id="downloadScheduleButton" class="admin-secondary-btn">Скачать schedule.js</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/schedule.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
