@@ -16,7 +16,7 @@ window.CLEVERDI_SCHEDULE = {
       day: "Понедельник",
       groups: "ЭУП-26, ФК-26, БУХ-26",
       lessons: [
-        { time: "12.50-14.10", subject: "Информатика и математика", teacher: "Жапаров А.", room: "40 ауд." },
+        { time: "12.50-14.40", subject: "Информатика и математика", teacher: "Жапаров А.", room: "40 ауд." },
         { time: "14.10-16.00", subject: "", teacher: "", room: "" }
       ]
     },
@@ -24,7 +24,7 @@ window.CLEVERDI_SCHEDULE = {
       day: "Вторник",
       groups: "ЭУП-1-26, ФК-1-26, БУХ-1-26",
       lessons: [
-        { time: "12.50-14.10", subject: "", teacher: "", room: "" },
+        { time: "12.50-14.40", subject: "", teacher: "", room: "" },
         { time: "14.10-16.00", subject: "Микроэкономика", teacher: "Сартбаева Г.П.", room: "100 ауд" }
       ]
     },
@@ -32,7 +32,7 @@ window.CLEVERDI_SCHEDULE = {
       day: "Среда",
       groups: "ЭУП-1-26, ФК-1-26, БУХ-1-26",
       lessons: [
-        { time: "12.50-14.10", subject: "", teacher: "", room: "" },
+        { time: "12.50-14.40", subject: "", teacher: "", room: "" },
         { time: "14.10-16.00", subject: "Экономическое мышление", teacher: "Абдыкалыкова Ж.", room: "100 ауд" }
       ]
     },
@@ -40,7 +40,7 @@ window.CLEVERDI_SCHEDULE = {
       day: "Четверг",
       groups: "ЭУП-1-26, ФК-1-26, БУХ-1-26",
       lessons: [
-        { time: "12.50-14.10", subject: "Экономическое мышление", teacher: "Абдыкалыкова Ж.", room: "30 ауд" },
+        { time: "12.50-14.40", subject: "Экономическое мышление", teacher: "Абдыкалыкова Ж.", room: "30 ауд" },
         { time: "14.10-16.00", subject: "", teacher: "", room: "" }
       ]
     },
@@ -48,7 +48,7 @@ window.CLEVERDI_SCHEDULE = {
       day: "Пятница",
       groups: "ЭУП-1-26, ФК-1-26, БУХ-1-26",
       lessons: [
-        { time: "12.50-14.10", subject: "", teacher: "", room: "" },
+        { time: "12.50-14.40", subject: "", teacher: "", room: "" },
         { time: "14.10-16.00", subject: "Экология", teacher: "Пирматова Ж.", room: "30 ауд." }
       ]
     }
