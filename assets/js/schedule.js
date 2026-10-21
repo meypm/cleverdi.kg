@@ -17,7 +17,7 @@ window.CLEVERDI_SCHEDULE = {
       groups: "ЭУП-26, ФК-26, БУХ-26",
       lessons: [
         { time: "12.50-14.40", subject: "Информатика и математика", teacher: "Жапаров А.", room: "40 ауд." },
-        { time: "14.10-16.00", subject: "", teacher: "", room: "" }
+        { time: "14.40-16.00", subject: "", teacher: "", room: "" }
       ]
     },
     {
@@ -41,7 +41,7 @@ window.CLEVERDI_SCHEDULE = {
       groups: "ЭУП-1-26, ФК-1-26, БУХ-1-26",
       lessons: [
         { time: "12.50-14.40", subject: "Экономическое мышление", teacher: "Абдыкалыкова Ж.", room: "30 ауд" },
-        { time: "14.10-16.00", subject: "", teacher: "", room: "" }
+        { time: "14.40-16.00", subject: "", teacher: "", room: "" }
       ]
     },
     {
@@ -49,7 +49,7 @@ window.CLEVERDI_SCHEDULE = {
       groups: "ЭУП-1-26, ФК-1-26, БУХ-1-26",
       lessons: [
         { time: "12.50-14.40", subject: "", teacher: "", room: "" },
-        { time: "14.10-16.00", subject: "Экология", teacher: "Пирматова Ж.", room: "30 ауд." }
+        { time: "14.40-16.00", subject: "Экология", teacher: "Пирматова Ж.", room: "30 ауд." }
       ]
     }
   ]
